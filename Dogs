@@ -1,1 +1,10 @@
 
+from tqdm.notebook import tqdm, trange
+path = '/content/S12/annotation/'
+import os
+from skimage import io
+sizedict = {}
+for filename in os.listdir(path):
+  image = io.imread(f'{path}{filename}', as_gray=False, pilmode="RGB")
+  sizedict[filename] = image.shape[:2]
+  
